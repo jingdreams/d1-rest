@@ -27,7 +27,7 @@
 					"binding": "SECRET",
 					"secret_name": "dev"
 				}
-			]
+			],"name": "d1-rest"
 		}
 	}
 }
