@@ -7,21 +7,27 @@
 	"name": "d1-rest",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-03-03",
-    "d1_databases": [
-        {
-          "binding": "DB",
-          "database_name": "dev",
-          "database_id": "a61d5cb1-c634-4ab1-a57b-5c2881c5530d"
-        }
-    ],
-    "secrets_store_secrets": [
-        {
-            "store_id": "4cc8b1842b86445dac4e281a07926ee8",
-            "binding": "SECRET",
-            "secret_name": "dev"
-        }
-    ],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "dev",
+			"database_id": "a61d5cb1-c634-4ab1-a57b-5c2881c5530d"
+		}
+	],
 	"observability": {
 		"enabled": true
+	},
+	// Production environment: uses Cloudflare Secrets Store
+	// Deploy with: wrangler deploy --env production
+	"env": {
+		"production": {
+			"secrets_store_secrets": [
+				{
+					"store_id": "4cc8b1842b86445dac4e281a07926ee8",
+					"binding": "SECRET",
+					"secret_name": "dev"
+				}
+			]
+		}
 	}
 }
