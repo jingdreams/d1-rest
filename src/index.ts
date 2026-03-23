@@ -59,8 +59,8 @@ export default {
             return next();
         };
 
-        // API docs page (requires auth)
-        app.get('/', authMiddleware, (c) => {
+        // API docs page (no auth required)
+        app.get('/', (c) => {
             const base = new URL(c.req.url).origin;
             const html = `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -107,7 +107,7 @@ export default {
 <body>
 <div class="container">
   <h1>D1 REST API</h1>
-  <p class="subtitle">Cloudflare D1 通用 REST 接口 &mdash; 所有接口均需鉴权</p>
+  <p class="subtitle">Cloudflare D1 通用 REST 接口</p>
 
   <div class="auth-box">
     <strong>鉴权方式：</strong> 所有请求需携带 Header：<code>Authorization: Bearer &lt;SECRET&gt;</code>
